@@ -1,15 +1,10 @@
 <?php
-/***********************
- * lab4.php
- * PHP Transactions
- ***********************/
 
-// تعريف المتغير قبل try (حل المشكلة)
 $pdo = null;
 
 try {
 
-    // بيانات الاتصال بقاعدة البيانات
+  
     $dsn  = "mysql:host=localhost;dbname=banks;charset=utf8";
     $user = "root";
     $pass = "";
@@ -23,10 +18,8 @@ try {
     $toAccount   = 2;
     $amount      = 500;
 
-    // بدء المعاملة
     $pdo->beginTransaction();
 
-    // 1️⃣ جلب رصيد الحساب الأول
     $stmt = $pdo->prepare("SELECT balance FROM accounts WHERE id = ?");
     $stmt->execute([$fromAccount]);
     $fromBalance = $stmt->fetchColumn();
@@ -39,19 +32,16 @@ try {
         throw new Exception("الرصيد غير كافٍ");
     }
 
-    // 2️⃣ خصم الرصيد من الحساب الأول
     $stmt = $pdo->prepare(
         "UPDATE accounts SET balance = balance - ? WHERE id = ?"
     );
     $stmt->execute([$amount, $fromAccount]);
 
-    // 3️⃣ إضافة الرصيد للحساب الثاني
     $stmt = $pdo->prepare(
         "UPDATE accounts SET balance = balance + ? WHERE id = ?"
     );
     $stmt->execute([$amount, $toAccount]);
 
-    // 4️⃣ تسجيل العملية
     $stmt = $pdo->prepare(
         "INSERT INTO transactions (from_account, to_account, amount, created_at)
          VALUES (?, ?, ?, NOW())"
@@ -61,7 +51,7 @@ try {
     // تأكيد جميع العمليات
     $pdo->commit();
 
-    echo "✅ تم تحويل المبلغ بنجاح";
+    echo " تم تحويل المبلغ بنجاح";
 
 } catch (Exception $e) {
 
@@ -78,6 +68,6 @@ try {
     );
 
     // رسالة آمنة للمستخدم
-    echo "❌ حدث خطأ أثناء تنفيذ العملية";
+    echo " حدث خطأ أثناء تنفيذ العملي";
 }
 ?>
