@@ -1,0 +1,5 @@
+2025-12-23 20:15:48 | SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-12-23 20:18:05 | SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-12-26 18:09:29 | SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it
+2025-12-26 23:00:19 | SQLSTATE[HY000] [1049] Unknown database 'bank_system'
+2025-12-26 23:05:04 | SQLSTATE[HY000] [1049] Unknown database 'bank_system'
