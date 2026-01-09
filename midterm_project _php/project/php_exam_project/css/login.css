@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+/* تقسيم الصفحة */
+.page {
+    display: flex;
+    height: 100vh;
+}
+
+/* نصف الصورة */
+.image-section {
+    width: 50%;
+    background-image: url("../images/back1.jpg"); /* غيّر المسار */
+    background-size: cover;
+    background-position: center;
+}
+
+/* نصف الفورم */
+.form-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+/* صندوق الفورم */
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* عناصر الفورم */
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+.container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.container button {
+    width: 100%;
+    padding: 10px;
+    background: #192230;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background: #202c41;
+}
+
+.container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.success {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .page {
+        flex-direction: column;
+    }
+
+    .image-section {
+        width: 100%;
+        height: 200px;
+    }
+
+    .form-section {
+        width: 100%;
+    }
+}
